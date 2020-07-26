@@ -26,13 +26,14 @@ class Login extends Component {
         
         const config = {
             // Configurar o firebase aqui
-            apiKey: "AIzaSyAyUw6tK9IFnasvM274uXpNoqSvPyH8WRk",
-            authDomain: "livegarden-514ff.firebaseapp.com",
-            databaseURL: "https://livegarden-514ff.firebaseio.com",
-            projectId: "livegarden-514ff",
-            storageBucket: "livegarden-514ff.appspot.com",
-            messagingSenderId: "901781537223",
-            appId: "1:901781537223:web:b58eaefccf144dab0119e2"
+            apiKey: "AIzaSyDUkhn4QCxtMFGSmCqCnE1wAFdOivK-tuE",
+            authDomain: "grinstore-24c38.firebaseapp.com",
+            databaseURL: "https://grinstore-24c38.firebaseio.com",
+            projectId: "grinstore-24c38",
+            storageBucket: "grinstore-24c38.appspot.com",
+            messagingSenderId: "30210571933",
+            appId: "1:30210571933:web:c0705d2808696c388bde74",
+            // measurementId: "G-TS8ZX6DL28"
         };
         // Initialize Firebase
         firebase.initializeApp(config);

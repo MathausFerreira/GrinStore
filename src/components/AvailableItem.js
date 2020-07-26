@@ -10,11 +10,12 @@ const AvailableItem = (props) => {
         <TouchableOpacity >
             {/* <View style={styles.line} > */}
                 <View style={styles.fixToText}>
-                {eachItem.img ? <Image style={styles.avatar} source={{ uri: eachItem.img }} /> : <Image style={styles.avatar} source={{ uri: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" }} />}
-                <Text style={styles.lineText}> {eachItem.Name}</Text>
-                    <Button title="  -  " onPress={() => {updateMinus(eachItem.key)}} />
-                    <Text style={styles.Number}> 00 </Text>
-                    <Button title="  + " onPress={() => {updatePlus(eachItem.key)}} />
+                {eachItem.Img ? <Image style={styles.avatar} source={{ uri: eachItem.Img }} /> : <Image style={styles.avatar} source={{ uri: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" }} />}
+                <Text style={styles.lineTitle}> {eachItem.Name}</Text>
+                <Text style={styles.lineValue}> R$ {eachItem.Price}</Text>
+                    <Button title="  -  " onPress={() => {updateMinus(eachItem.id)}} />
+                    <Text style={styles.Number}>  {eachItem.Qtd} </Text>
+                    <Button title="  + " onPress={() => {updatePlus(eachItem.id)}} />
                     <Text>   </Text>
                 </View>
                 <View style={styles.separator} />
@@ -52,10 +53,13 @@ const styles = StyleSheet.create({
         fontSize: 25,
 
     },
-    lineText: {
+    lineTitle: {
         fontSize: 20,
-        paddingLeft: 15,
         flex: 7,
+    },
+    lineValue: {
+        fontSize: 13,
+        flex: 3,
     },
     separator: {
         marginVertical: 8,

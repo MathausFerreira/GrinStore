@@ -13,7 +13,7 @@ class Home extends React.Component {
 
     render() {
         const { itemList, user } = this.props;
-        console.log(` User email : ${user}`);
+        // console.log(` User email : ${user}`);
         if (itemList === null) {
             return <ActivityIndicator />;
         }
