@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity, Button, Alert } from 'react-native';
-import {updateValue } from '../actions';
+import {updateValue,updateUserItemValue  } from '../actions';
 import { connect } from 'react-redux';
 
 // aqui é construido a cara do componente da lista
@@ -10,12 +10,13 @@ const AvailableItem = (props) => {
         <TouchableOpacity >
             {/* <View style={styles.line} > */}
                 <View style={styles.fixToText}>
-                {eachItem.Img ? <Image style={styles.avatar} source={{ uri: eachItem.Img }} /> : <Image style={styles.avatar} source={{ uri: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" }} />}
+                {eachItem.Img ? <Image style={styles.avatar} source={{ uri: eachItem.Img }} /> : 
+                <Image style={styles.avatar} source={{ uri: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" }} />}
                 <Text style={styles.lineTitle}> {eachItem.Name}</Text>
                 <Text style={styles.lineValue}> R$ {eachItem.Price}</Text>
                     <Button title="  -  " onPress={() => {}} />
                     <Text style={styles.Number}>  {eachItem.Qtd} </Text>
-                    <Button title="  + " onPress={() => {updateValue(eachItem,'Qtd',eachItem.Qtd+1)}} />
+                    <Button title="  + " onPress={() => {updateUserItemValue(eachItem,'Qtd',35)}} />
                     <Text>   </Text>
                 </View>
                 <View style={styles.separator} />
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = {
     updateValue,
+    updateUserItemValue
 }
 
 

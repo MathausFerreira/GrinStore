@@ -7,6 +7,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Welcome from './screens/Welcome';
+import NewItem from './screens/NewItem';
 // import ItemDetailPage from './screens/ItemDetailPage';
 // import NewPlantPage from './screens/NewPlantPage';
 
@@ -16,6 +17,7 @@ const AppNavigator = createStackNavigator(
         Login,
         Welcome,
         Home,
+        NewItem
 },{
     defaultNavigationOptions:{
         title: 'GRIn Store',

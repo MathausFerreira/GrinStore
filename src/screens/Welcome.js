@@ -35,6 +35,11 @@ class Welcome extends React.Component {
                             <Text style={styles.text}> Minha conta </Text>
                         </View>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { return this.props.navigation.navigate('NewItem')}}>
+                        <View style={styles.central}>
+                            <Text style={styles.text}> Cadastrar Item </Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
                 {/* <View style={styles.container}>
                     <View style={styles.central} />

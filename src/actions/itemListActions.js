@@ -1,11 +1,12 @@
 import firebase from 'firebase';
-// import { Alert } from 'react-native';
 
-export const SET_ITEMS = 'SET_ITEMS'
-export const setItems = items => ({
-    type: SET_ITEMS,
-    items,
+export const SET_LIST = 'SET_LIST'
+export const setItems = item => ({
+    type: SET_LIST,
+    item,
 })
+
+
 
 export const watchItem = () => {
     const { currentUser } = firebase.auth();
@@ -21,7 +22,6 @@ export const watchItem = () => {
     }
 }
 
-
 export const updateValue = (Item, field, value) => {
     console.log(Item.id)
     return async dispatch => {
@@ -31,16 +31,17 @@ export const updateValue = (Item, field, value) => {
         }
     }
 }
-
-export const updateValue = (Item, field, value) => {
+export const updateUserItemValue = (Item, field, value) => {
+    const { currentUser } = firebase.auth();
     console.log(Item.id)
     return async dispatch => {
         if (Item.id) {
             // const val = Item.Qtd+1;
-                await firebase.database().ref(`Inventory/${Item.id}`).update({ [field]: value });
+                await firebase.database().ref(`users/${currentUser.id}/userProducts/${Item.id}`).update({ [field]: value });
         }
     }
 }
+
 
 
 // export const watchItem = () => {
