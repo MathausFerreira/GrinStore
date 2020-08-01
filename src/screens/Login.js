@@ -18,7 +18,6 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        
         this.setState({
             email: "mathaus@hotmail.com",
             password: "123123"
@@ -56,7 +55,7 @@ class Login extends Component {
                     // if (user.additionalUserInfo.isNewUser) {
                     //     return this.props.navigation.replace('NewPlantPage');
                     // } else {
-                        return this.props.navigation.replace('Home');
+                        return this.props.navigation.replace('Welcome');
                     // }
                 }
                 this.setState({

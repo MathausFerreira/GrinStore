@@ -4,7 +4,7 @@ import { StyleSheet, View, ActivityIndicator, Text } from 'react-native';
 import AvailableItemList from '../components/AvailableItemList';
 
 import { connect } from 'react-redux';
-import { watchItem, setWholeItem } from '../actions';
+import { watchItem, setItems } from '../actions';
 
 class Home extends React.Component {
     componentDidMount() {
@@ -23,7 +23,6 @@ class Home extends React.Component {
                     <Text style={styles.userName}> {user.email}</Text>
                 </View>
                 <AvailableItemList Item={itemList} />
-
             </View>
         );
     }
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         height:50,
         backgroundColor: '#aaa',
-
     },
     actionButton: {
         padding: 10,
@@ -50,14 +48,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-
     const { itemList, user } = state;
     console.log(user);
-
     if (itemList === null) {
         return { itemList }
     }
-
     const keys = Object.keys(itemList);
     const ItemWithKeys = keys.map(id => { return { ...itemList[id], id } })
 
@@ -69,4 +64,4 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, { watchItem, setWholeItem })(Home);
+export default connect(mapStateToProps, { watchItem, setItems })(Home);

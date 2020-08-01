@@ -6,6 +6,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Login from './screens/Login';
 import Home from './screens/Home';
+import Welcome from './screens/Welcome';
 // import ItemDetailPage from './screens/ItemDetailPage';
 // import NewPlantPage from './screens/NewPlantPage';
 
@@ -13,6 +14,7 @@ import Home from './screens/Home';
 const AppNavigator = createStackNavigator(
     {
         Login,
+        Welcome,
         Home,
 },{
     defaultNavigationOptions:{
