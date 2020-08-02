@@ -6,8 +6,7 @@ import { Image, View, Slider, StyleSheet,
 import FormRow from '../components/FormRow';
 import { connect } from 'react-redux'
 
-
-import {setField, saveNewItem, setWholeItem, resetForm} from '../actions';
+import {setField, saveNewItem, resetForm} from '../actions';
 
 
 class NewItem extends React.Component {
@@ -124,7 +123,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     setField,
     saveNewItem,
-    setWholeItem,
     resetForm,
 }
 

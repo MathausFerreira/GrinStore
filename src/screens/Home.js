@@ -4,17 +4,17 @@ import { StyleSheet, View, ActivityIndicator, Text } from 'react-native';
 import AvailableItemList from '../components/AvailableItemList';
 
 import { connect } from 'react-redux';
-import { watchItem, setItems } from '../actions';
+import { watchUserItem, setItems } from '../actions';
 
 class Home extends React.Component {
     componentDidMount() {
-        this.props.watchItem();
+        this.props.watchUserItem();
     }
 
     render() {
-        const { itemList, user } = this.props;
+        const { userItemList, user } = this.props;
         // console.log(` User email : ${user}`);
-        if (itemList === null) {
+        if (userItemList === null) {
             return <ActivityIndicator />;
         }
         return (
@@ -22,7 +22,7 @@ class Home extends React.Component {
                 <View style={styles.containerName}> 
                     <Text style={styles.userName}> {user.email}</Text>
                 </View>
-                <AvailableItemList Item={itemList} />
+                <AvailableItemList Item={userItemList} />
             </View>
         );
     }
@@ -48,20 +48,20 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    const { itemList, user } = state;
+    const {userItemList, user } = state;
     console.log(user);
-    if (itemList === null) {
-        return { itemList }
+    if (userItemList === null) {
+        return { userItemList }
     }
-    const keys = Object.keys(itemList);
-    const ItemWithKeys = keys.map(id => { return { ...itemList[id], id } })
+    const keys = Object.keys(userItemList);
+    const ItemWithKeys = keys.map(id => { return { ...userItemList[id], id } })
 
     const User = { ...user.user };
     // console.log(ItemWithKeys)
     return {
-        itemList: ItemWithKeys,
+        userItemList: ItemWithKeys,
         user: User
     };
 }
 
-export default connect(mapStateToProps, { watchItem, setItems })(Home);
+export default connect(mapStateToProps, { watchUserItem, setItems })(Home);

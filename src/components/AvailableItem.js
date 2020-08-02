@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity, Button, Alert } from 'react-native';
-import {updateValue,updateUserItemValue  } from '../actions';
+import {updateInventoryItemValue, updateUserItemValue  } from '../actions';
 import { connect } from 'react-redux';
 
 // aqui é construido a cara do componente da lista
@@ -14,9 +14,13 @@ const AvailableItem = (props) => {
                 <Image style={styles.avatar} source={{ uri: "https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png" }} />}
                 <Text style={styles.lineTitle}> {eachItem.Name}</Text>
                 <Text style={styles.lineValue}> R$ {eachItem.Price}</Text>
-                    <Button title="  -  " onPress={() => {}} />
+                    <Button title="  -  " onPress={() => {
+                        updateUserItemValue(eachItem,'Qtd',(parseFloat(eachItem.Qtd)-1.0))
+                        updateInventoryItemValue(eachItem,'Qtd',-1.0)}} />
                     <Text style={styles.Number}>  {eachItem.Qtd} </Text>
-                    <Button title="  + " onPress={() => {updateUserItemValue(eachItem,'Qtd',35)}} />
+                    <Button title="  +  " onPress={() => {
+                        updateUserItemValue(eachItem,'Qtd',(parseFloat(eachItem.Qtd)+1.0))
+                        updateInventoryItemValue(eachItem,'Qtd',1.0)}} />
                     <Text>   </Text>
                 </View>
                 <View style={styles.separator} />
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = {
-    updateValue,
+    updateInventoryItemValue,
     updateUserItemValue
 }
 
